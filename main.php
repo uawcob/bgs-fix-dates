@@ -3,7 +3,8 @@
 // https://stackoverflow.com/a/8450359/4233593
 function processDate(Traversable $elements)
 {
-    return $elements[2]->nodeValue;
+    $date = DateTime::createFromFormat('m/d/y', $elements[2]->nodeValue);
+    return $date->format('Y-m-d');
 }
 
 function getdata()
