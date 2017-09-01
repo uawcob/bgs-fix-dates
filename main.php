@@ -8,6 +8,11 @@ use Carbon\Carbon;
 function processDate(Traversable $elements)
 {
     $date = Carbon::createFromFormat('m/d/y', $elements[2]->nodeValue);
+
+    if ($date->year >= 2018) {
+        $date->subYears(100);
+    }
+
     return $date->format('Y-m-d');
 }
 
