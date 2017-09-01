@@ -13,7 +13,7 @@ function processDate(Traversable $elements)
         $date->subYears(100);
     }
 
-    return $date->format('Y-m-d');
+    $elements[2]->nodeValue = $date->format('Y-m-d');
 }
 
 function getdata()
@@ -24,8 +24,10 @@ function getdata()
     $items = $DOM->getElementsByTagName('tr');
 
     foreach ($items as $node) {
-        echo processDate($node->childNodes) . PHP_EOL;
+        processDate($node->childNodes);
     }
+
+    $DOM->saveHTMLFile('fixed.html');
 }
 
 getdata();
