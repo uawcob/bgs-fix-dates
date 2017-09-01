@@ -13,9 +13,8 @@ function tdrows($elements)
 
 function getdata()
 {
-    $contents = "<table><tr><td>Row 1 Column 1</td><td>Row 1 Column 2</td></tr><tr><td>Row 2 Column 1</td><td>Row 2 Column 2</td></tr></table>";
     $DOM = new DOMDocument;
-    $DOM->loadHTML($contents);
+    $DOM->loadHTMLFile(__DIR__.'/data.html');
 
     $items = $DOM->getElementsByTagName('tr');
 
